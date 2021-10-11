@@ -1,0 +1,17 @@
+---
+- name: Generate Debug
+  template:
+    src: "macsec_config.j2"
+    dest: "debug_configs/{{ inventory_hostname }}_macsec_config.txt"
+
+- name: Generate MACSec config
+  junos_config:
+    lines: "{{ lookup('template', 'macsec_config.j2').split('\n') }}"
+    comment: Configured MACSec
+  when: macsec_remove == False
+
+- name: Remove MACSec config
+  junos_config:
+    lines: "{{ lookup('template', 'macsec_remove.j2').split('\n') }}"
+    comment: Remove MACSec
+  when: macsec_remove == True
