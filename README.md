@@ -10,16 +10,16 @@ Requirements
 Role Variables
 --------------
 * macsec_cas: list of dictionaries
-** name: str
-** cipher: str
-** security_mode: str
-** mka: dictionary
-*** transmit_interval: str
-*** key_priority: str
-** ckn: str, hexadecimal 64bytes
-** cak: str, hexadecimal 32bytes
-** interfaces: list of dictionaries
-*** name: str
+   * name: str
+   * cipher: str
+   * security_mode: str
+   * mka: dictionary
+      * transmit_interval: str
+      * key_priority: str
+   * ckn: str, hexadecimal 64bytes
+   * cak: str, hexadecimal 32bytes
+   * interfaces: list of dictionaries
+      * name: str
 
 Dependencies
 ------------
