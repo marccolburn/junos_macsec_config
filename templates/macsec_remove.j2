@@ -1,13 +1,1 @@
-{% for ca in macsec_cas %}
-delete security macsec connectivity-association {{ ca.name }} cipher-suite {{ ca.cipher }}
-delete security macsec connectivity-association {{ ca.name }} security-mode {{ ca.security_mode }} 
-{% if ca.mka is defined %}
-delete security macsec connectivity-association {{ ca.name }} mka transmit-interval {{ ca.mka.transmit_interval }}
-delete security macsec connectivity-association {{ ca.name }} mka key-server-priority {{ ca.mka.key_priority }}
-{% endif %}
-delete security macsec connectivity-association {{ ca.name }} pre-shared-key ckn {{ ca.ckn }} 
-delete security macsec connectivity-association {{ ca.name }} pre-shared-key cak {{ ca.cak }} 
-{% for int in ca.interfaces %}
-delete security macsec interfaces {{ int.name }} connectivity-association {{ ca.name }}
-{% endfor %}
-{% endfor %}
+delete security macsec 
