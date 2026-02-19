@@ -9,7 +9,7 @@ set security macsec connectivity-association {{ ca.name }} pre-shared-key ckn {{
 set security macsec connectivity-association {{ ca.name }} pre-shared-key cak {{ ca.cak }} 
 {% for int in ca.interfaces %}
 {% if int.unit is defined %}
-set security macsec interfaces {{ int.name }}.{{ int.unit }} connectivity-association {{ ca.name }}
+set security macsec interfaces {{ int.name }} unit {{ int.unit }} connectivity-association {{ ca.name }}
 {% else %}
 set security macsec interfaces {{ int.name }} connectivity-association {{ ca.name }}
 {% endif %}
