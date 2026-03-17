@@ -16,7 +16,7 @@ set security macsec interfaces {{ int.name }} connectivity-association {{ ca.nam
 {% endfor %}
 {% if ca.ethertype is defined %}
 set forwarding-options custom-eapol-ether-type-profiles {{ ca.ethertype.profile_name }} ether-type {{ ca.ethertype.address }}
-set security macsec connectivity-association {{ ca.name }} mka eapol-ethertype-profile {{ ca.ethertype.profile_name }}
+set security macsec connectivity-association {{ ca.name }} mka eapol-ether-type-profile {{ ca.ethertype.profile_name }}
 {% endif %}
 {% if ca.eapol_address is defined %}
 set security macsec connectivity-association {{ ca.name }} mka eapol-address {{ eapol_address.type }} {% if eapol_address.type == "destination" %}{{eapol_address.address }}{% endif %}
